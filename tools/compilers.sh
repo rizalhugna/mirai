@@ -1,20 +1,20 @@
 sudo apt install gcc-arm-linux-gnueabihf
 
-sudo mkdir /etc/xcompile
-sudo cd /etc/xcompile
+sudo mkdir -p /etc/xcompile
+cd /etc/xcompile
 
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-armv4l.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-armv5l.tar.bz2
-sudo wget http://distro.ibiblio.org/slitaz/sources/packages/c/cross-compiler-armv6l.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-i586.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-i686.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-m68k.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-mips.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-mipsel.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-powerpc.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-sh4.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-sparc.tar.bz2
-sudo wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-x86_64.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-i586.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-i686.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-m68k.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-mips.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-mipsel.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-powerpc.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-sh4.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-sparc.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-armv4l.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-armv5l.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-armv6l.tar.bz2
+sudo wget https://github.com/R00tS3c/DDOS-RootSec/raw/master/uclib-cross-compilers/cross-compiler-x86_64.tar.bz2
 
 sudo tar -jxf cross-compiler-armv4l.tar.bz2
 sudo tar -jxf cross-compiler-armv5l.tar.bz2
@@ -61,11 +61,16 @@ echo "export PATH=\$PATH:/etc/xcompile/armv6l/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.bashrc
 #echo "export GOPATH=\$HOME/Documents/go" >> ~/.bashrc
 
-#echo "Setting go path for dependecie install"
-#export PATH=$PATH:/usr/local/go/bin
-#export GOPATH=$HOME/Documents/go
+# Setting Go path for dependencies install
+echo "[+] Setting Go environment..."
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/Documents/go
 
-#go get github.com/go-sql-driver/mysql
-#go get github.com/mattn/go-shellwords
+# Install Go dependencies
+echo "[+] Installing Go dependencies..."
+go get github.com/go-sql-driver/mysql
+go get github.com/mattn/go-shellwords
+
+echo "[+] Go dependencies installed successfully!"
 
 echo "Done! please restart shell!"
